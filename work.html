@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <div>
+            <p>Number</p>
+            <input type="number" name="" id="inputNumber" min="0" step="1" pattern="[0-999],{0,3}">
+        </div>
+        <div>
+            <p>Current</p>
+            <input type="number" name="" id="inputCurrent">
+        </div>
+        <div>
+            <p>New</p>
+            <input type="number" name="" id="inputNew">
+        </div>
+
+    </div>
+
+
+    <p></p>
+    <button id="btnSUM" onclick="clickSUM()">SUM</button>
+    <button id="btnFind" onclick="clickFind()">Find</button>
+    <button id="btnReverse" onclick="clickRever()">Reverse</button>
+    <button id="btnSwap" onclick="clickSwap()">Swap</button>
+    <button id="btnAll" onclick="clickAll()">All</button>
+    <button id="btnClear">Clear</button>
+
+    <p id="warning"></p>
+
+    <p> Result</p>
+    1.<span id="resultSUM"></span>
+    <p></p>
+    2.<span id="resultFind"></span>
+    <p></p>
+    3.<span id="resultReverse"></span>
+    <p></p>
+    4.<span id="resultSwap"></span>
+    <p></p>
+
+
+    <script>
+        var arr = [];
+        var num = document.getElementById("inputNumber");
+
+        var curr = document.getElementById("inputCurrent");
+
+        var newNum = document.getElementById("inputNew");
+
+
+
+
+        function clickSUM() {
+
+
+            addArr(num.value);
+
+
+            var result = 0;
+
+            for (i = 0; i <= num.value; i++) {
+                result += i;
+            }
+
+
+
+            document.getElementById("resultSUM").innerHTML = result;
+            document.getElementById("resultReverse").innerHTML = arr;
+
+
+            // console.log(arr);
+
+
+        }
+
+
+
+        function clickFind() {
+
+            var arr2 = [0, 1, 2, 3, 4, 5]
+
+
+            // lay number tu input
+            var numCurr = parseInt(curr.value);
+            // addArr(num.value);
+
+            console.log(numCurr);
+            // console.log(arr);
+
+
+            console.log(arr)
+
+            // lay vi tri cua number do trong array
+            var index = arr.indexOf(numCurr);
+
+            console.log(index);
+
+            document.getElementById("resultFind").innerHTML = arr.indexOf(numCurr);
+
+            // console.log(" position " + arr.indexOf(numCurr))
+
+        }
+
+        function clickRever() {
+            // addArr(num.value);
+
+            arr.reverse();
+
+            document.getElementById("resultReverse").innerHTML = arr;
+        }
+
+
+
+        function clickSwap() {
+            // addArr(num.value);
+            var numCurr = parseInt(curr.value);
+            var numNew = parseInt(newNum.value);
+
+            var swapNum = numNew;
+
+            var index1 = arr.indexOf(numCurr);
+            console.log("vi tri cua so do hehe :" + index1)
+
+            var index2 = arr.indexOf(numNew);
+
+
+            console.log("vi tri cua so new hehe :" + index2)
+
+            arr.splice(index1, 1, numNew);
+
+
+            console.log("vi tri cua so new hehe :" + index2)
+            arr.splice(index2, 1, numCurr);
+
+            document.getElementById("resultSwap").innerHTML = arr;
+
+
+        }
+
+
+        function clickAll() {
+            clickSUM();
+            clickFind();
+            clickRever();
+            clickSwap();
+        }
+
+        function addArr(num) {
+
+            for (i = 0; i <= num; i++) {
+                arr.push(i);
+            }
+
+            return arr;
+
+        }
+    </script>
+</body>
+
+</html>
