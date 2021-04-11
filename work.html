@@ -32,18 +32,18 @@
     <button id="btnReverse" onclick="clickRever()">Reverse</button>
     <button id="btnSwap" onclick="clickSwap()">Swap</button>
     <button id="btnAll" onclick="clickAll()">All</button>
-    <button id="btnClear">Clear</button>
+    <button id="btnClear" onclick="clickClear()">Clear</button>
 
     <p id="warning"></p>
 
     <p> Result</p>
-    1.<span id="resultSUM"></span>
+    1.<span id="resultSUM" class="result"></span>
     <p></p>
-    2.<span id="resultFind"></span>
+    2.<span id="resultFind" class="result"></span>
     <p></p>
-    3.<span id="resultReverse"></span>
+    3.<span id="resultReverse" class="result"></span>
     <p></p>
-    4.<span id="resultSwap"></span>
+    4.<span id="resultSwap" class="result"></span>
     <p></p>
 
 
@@ -85,23 +85,23 @@
 
         function clickFind() {
 
-            var arr2 = [0, 1, 2, 3, 4, 5]
+            // var arr2 = [0, 1, 2, 3, 4, 5]
 
 
             // lay number tu input
             var numCurr = parseInt(curr.value);
             // addArr(num.value);
 
-            console.log(numCurr);
+            // console.log(numCurr);
             // console.log(arr);
 
 
-            console.log(arr)
+            // console.log(arr)
 
             // lay vi tri cua number do trong array
             var index = arr.indexOf(numCurr);
 
-            console.log(index);
+            // console.log(index);
 
             document.getElementById("resultFind").innerHTML = arr.indexOf(numCurr);
 
@@ -127,17 +127,17 @@
             var swapNum = numNew;
 
             var index1 = arr.indexOf(numCurr);
-            console.log("vi tri cua so do hehe :" + index1)
+            // console.log("vi tri cua so current:" + index1)
 
             var index2 = arr.indexOf(numNew);
 
 
-            console.log("vi tri cua so new hehe :" + index2)
+            // console.log("vi tri cua so new  :" + index2)
 
             arr.splice(index1, 1, numNew);
 
 
-            console.log("vi tri cua so new hehe :" + index2)
+            // console.log("vi tri cua so new  :" + index2)
             arr.splice(index2, 1, numCurr);
 
             document.getElementById("resultSwap").innerHTML = arr;
@@ -152,6 +152,23 @@
             clickRever();
             clickSwap();
         }
+
+
+        function clickClear() {
+
+            curr.value = "";
+            num.value = "";
+            newNum.value = "";
+
+            var listResult = document.getElementsByClassName("result");
+
+            for (i = 0; i <= listResult.length; i++) {
+                listResult[i].innerText = "";
+            }
+
+
+        }
+
 
         function addArr(num) {
 
