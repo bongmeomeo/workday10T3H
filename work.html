@@ -50,101 +50,58 @@
     <script>
         var arr = [];
         var num = document.getElementById("inputNumber");
-
         var curr = document.getElementById("inputCurrent");
-
         var newNum = document.getElementById("inputNew");
 
-
-
-
         function clickSUM() {
-
-
             addArr(num.value);
-
-
             var result = 0;
-
             for (i = 0; i <= num.value; i++) {
                 result += i;
             }
-
-
-
             document.getElementById("resultSUM").innerHTML = result;
             document.getElementById("resultReverse").innerHTML = arr;
-
-
             // console.log(arr);
-
-
         }
 
-
-
         function clickFind() {
-
             // var arr2 = [0, 1, 2, 3, 4, 5]
-
-
             // lay number tu input
             var numCurr = parseInt(curr.value);
             // addArr(num.value);
-
             // console.log(numCurr);
             // console.log(arr);
-
-
             // console.log(arr)
-
             // lay vi tri cua number do trong array
             var index = arr.indexOf(numCurr);
-
             // console.log(index);
-
             document.getElementById("resultFind").innerHTML = arr.indexOf(numCurr);
-
             // console.log(" position " + arr.indexOf(numCurr))
-
         }
 
         function clickRever() {
             // addArr(num.value);
-
-            arr.reverse();
-
-            document.getElementById("resultReverse").innerHTML = arr;
+            var arr2 = arr.slice();
+            // console.log("arr1:" + arr)
+            // console.log("arr2:" + arr2)
+            arr2.reverse();
+            document.getElementById("resultReverse").innerHTML = arr2;
         }
-
-
 
         function clickSwap() {
             // addArr(num.value);
             var numCurr = parseInt(curr.value);
             var numNew = parseInt(newNum.value);
-
             var swapNum = numNew;
-
             var index1 = arr.indexOf(numCurr);
             // console.log("vi tri cua so current:" + index1)
-
             var index2 = arr.indexOf(numNew);
-
-
             // console.log("vi tri cua so new  :" + index2)
-
             arr.splice(index1, 1, numNew);
-
-
             // console.log("vi tri cua so new  :" + index2)
             arr.splice(index2, 1, numCurr);
-
             document.getElementById("resultSwap").innerHTML = arr;
-
-
         }
-
 
         function clickAll() {
             clickSUM();
@@ -153,31 +110,21 @@
             clickSwap();
         }
 
-
         function clickClear() {
-
             curr.value = "";
             num.value = "";
             newNum.value = "";
-
             var listResult = document.getElementsByClassName("result");
-
             for (i = 0; i <= listResult.length; i++) {
                 listResult[i].innerText = "";
             }
-
-
         }
 
-
         function addArr(num) {
-
             for (i = 0; i <= num; i++) {
                 arr.push(i);
             }
-
             return arr;
-
         }
     </script>
 </body>
